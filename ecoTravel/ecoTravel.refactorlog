@@ -56,4 +56,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IdPhoto" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="9b538215-9dd4-4abe-9748-c06611c79581" ChangeDateTime="03/08/2023 19:34:15">
+    <Property Name="ElementName" Value="[dbo].[Logement].[coord_geo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Logement]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="longitude" />
+  </Operation>
 </Operations>
