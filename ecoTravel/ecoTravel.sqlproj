@@ -68,9 +68,7 @@
     <Build Include="Tables\Reservation.sql" />
     <Build Include="Tables\Avis.sql" />
     <Build Include="Tables\Photo.sql" />
-    <Build Include="StoredProcedures\LogementAjoutMois.sql" />
-    <Build Include="StoredProcedures\reservationEncoursClient.sql" />
-    <Build Include="StoredProcedures\LogementDispo2Dates.sql" />
+    <Build Include="StoredProcedures\sp_AddClient.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ecoTravel.refactorlog" />
