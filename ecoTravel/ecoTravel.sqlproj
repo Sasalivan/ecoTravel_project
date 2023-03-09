@@ -73,4 +73,7 @@
   <ItemGroup>
     <RefactorLog Include="ecoTravel.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ecoTravel.publish.xml" />
+  </ItemGroup>
 </Project>
