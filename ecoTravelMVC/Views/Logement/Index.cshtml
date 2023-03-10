@@ -1,0 +1,155 @@
+﻿@model IEnumerable<ecoTravelMVC.Models.LogementModelView.LogementListItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adresseRue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adresseNumero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adresseCodePostal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adressePays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.desc_courte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.desc_longue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nb_chambre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nb_piece)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nb_sdb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nb_wc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.capacite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.balcon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.airco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wifi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.minibar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.animaux)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.piscine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.voiturier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roomService)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.prix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresseRue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresseNumero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresseCodePostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adressePays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desc_courte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desc_longue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nb_chambre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nb_piece)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nb_sdb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nb_wc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.capacite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.balcon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.airco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wifi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.minibar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.animaux)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.piscine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.voiturier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.roomService)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.idLogement }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.idLogement }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.idLogement })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

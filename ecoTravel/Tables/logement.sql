@@ -26,7 +26,7 @@
     [roomService] BIT NOT NULL DEFAULT 0,
     [idProprio] INT NOT NULL,
     CONSTRAINT [PK_logement] PRIMARY KEY ([IdLogement]),
-    CONSTRAINT [CK_Logement_desc_courte] CHECK (LEN([desc_courte]) >= 10),
+    CONSTRAINT [CK_Logement_desc_courte] CHECK (LEN([desc_courte]) >= 100),
     CONSTRAINT [CK_Logement_desc_longue] CHECK (LEN([desc_longue]) >= LEN([desc_courte])),
     CONSTRAINT FK_Logement_Proprio FOREIGN KEY ([idProprio]) REFERENCES [Proprio]([idClient])
 )

@@ -1,3 +1,6 @@
+using BLL.Entities;
+using BLL.Services;
+using COMMON.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLLServ = BLL.Services;
+using DALServ = DAL.Services;
+using BLLObject = BLL.Entities;
+using DALObject = DAL.Entities;
 
 namespace ecoTravelMVC
 {
@@ -23,6 +30,11 @@ namespace ecoTravelMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IClientRepository<BLLObject.Client, int>, BLLServ.ClientService>();
+            services.AddScoped<IClientRepository<DALObject.Client,int>, DALServ.ClientService>();
+
+            services.AddScoped<ILogementRepository<BLLObject.Logement, int>, BLLServ.LogementService>();
+            services.AddScoped<ILogementRepository<DALObject.Logement, int>, DALServ.LogementService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -13,7 +13,7 @@ namespace DAL.Services
 {
 	public class ClientService : IClientRepository<Client, int>
 	{
-		//a enlever apres
+		//a enlever qd on securise la DB
 		private string connectionString { get; set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog =EcoTravelDB;Integrated Security = True";
 		public IEnumerable<Client> Get()
 		{
@@ -58,7 +58,7 @@ namespace DAL.Services
 			{
 				using (SqlCommand command = connection.CreateCommand())
 				{
-					command.CommandText = "sp_AddClient";
+					command.CommandText = "AddClient";
 					command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddWithValue("nom", entity.nom);
 					command.Parameters.AddWithValue("prenom", entity.prenom);

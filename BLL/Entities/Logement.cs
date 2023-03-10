@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Entities
+namespace BLL.Entities
 {
-	public class Logement
-	{
+    public class Logement
+    {
 		//int
 		public int idLogement { get; set; }
 
@@ -83,5 +83,5 @@ namespace DAL.Entities
 		//INT
 		public int idProprio { get; set; }
 
-		}
+	}
 }

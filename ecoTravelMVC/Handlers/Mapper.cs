@@ -1,21 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BLLe = BLL.Entities;
-using DALe = DAL.Entities;
+﻿using BLL.Entities;
+using ecoTravelMVC.Models.ClientModelView;
+using ecoTravelMVC.Models.LogementModelView;
 
-namespace BLL
+namespace ecoTravelMVC.Handlers
 {
-	static class Mapper
-	{
-		public static BLLe.Client ToBLL(this DALe.Client entity)
-		{
+    public static class Mapper
+    {
+        public static ClientListItem ToListItem(this BLL.Entities.Client entity)
+        {
 			if (entity is null) return null;
-			return new BLLe.Client()
+			return new ClientListItem()
 			{
 				idClient = entity.idClient,
+				nom = entity.nom,
+				prenom = entity.prenom,
+				pays = entity.pays,
+				telephone = entity.telephone
+			};
+		}
+
+		public static Client ToBLL(this ClientCreateForm entity)
+		{
+			if (entity is null) return null;
+			return new Client()
+			{
 				nom = entity.nom,
 				prenom = entity.prenom,
 				mail = entity.mail,
@@ -25,25 +33,11 @@ namespace BLL
 			};
 		}
 
-		public static DALe.Client ToDAL(this BLLe.Client entity)
-		{
-			if (entity is null) return null;
-			return new DALe.Client()
-			{
-				idClient = entity.idClient,
-				nom = entity.nom,
-				prenom = entity.prenom,
-				mail = entity.mail,
-				pays = entity.pays,
-				telephone = entity.telephone,
-				password = entity.password
-			};
-		}
 
-		public static BLLe.Logement ToBLL(this DALe.Logement entity)
+		public static LogementListItem ToListItem(this BLL.Entities.Logement entity)
 		{
 			if (entity is null) return null;
-			return new BLLe.Logement()
+			return new LogementListItem()
 			{
 				idLogement = entity.idLogement,
 				prix = entity.prix,
@@ -52,8 +46,6 @@ namespace BLL
 				adresseNumero = entity.adresseNumero,
 				adresseCodePostal = entity.adresseCodePostal,
 				adressePays = entity.adressePays,
-				longitude = entity.longitude,
-				latitude = entity.latitude,
 				desc_courte = entity.desc_courte,
 				desc_longue = entity.desc_longue,
 				nb_chambre = entity.nb_chambre,
@@ -68,17 +60,15 @@ namespace BLL
 				animaux = entity.animaux,
 				piscine = entity.piscine,
 				voiturier = entity.voiturier,
-				roomService = entity.roomService,
-				idProprio = entity.idProprio
+				roomService = entity.roomService
 			};
 		}
 
-		public static DALe.Logement ToDAL(this BLLe.Logement entity)
+		public static Logement ToBLL(this LogementCreateForm entity)
 		{
 			if (entity is null) return null;
-			return new DALe.Logement()
+			return new Logement()
 			{
-				idLogement = entity.idLogement,
 				prix = entity.prix,
 				nom = entity.nom,
 				adresseRue = entity.adresseRue,

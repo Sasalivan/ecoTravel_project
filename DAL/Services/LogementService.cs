@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Services
 {
-	class LogementService : IRepository<Logement, int>
+	public class LogementService : ILogementRepository<Logement, int>
 	{
 		//a enlever apres
 		private string connectionString { get; set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog =EcoTravelDB;Integrated Security = True";
@@ -60,7 +60,6 @@ namespace DAL.Services
 				using (SqlCommand command = connection.CreateCommand())
 				{
 					command.CommandText = "INSERT INTO [Logement] ( [prix], [nom], [adresseRue], [adresseNumero], [adresseCodePostal], [adressePays], [longitude], [latitude], [desc_courte], [desc_longue], [nb_chambre], [nb_piece], [nb_sdb], [nb_wc], [capacite], [balcon], [airco], [wifi], [minibar], [animaux], [piscine], [voiturier], [roomService], [idProprio]) OUTPUT [inserted].[idLogement] VALUES (@prix, @nom, @adresseRue, @adresseNumero, @adresseCodePostal, @adressePays, @longitude, @latitude, @desc_courte, @desc_longue, @nb_chambre, @nb_piece, @nb_sdb, @nb_wc, @capacite, @balcon, @airco, @wifi, @minibar, @animaux, @piscine, @voiturier, @roomService, @idProprio)";
-					//command.CommandType = CommandType.StoredProcedure;
 					command.Parameters.AddWithValue("prix", entity.prix);
 					command.Parameters.AddWithValue("nom", entity.nom);
 					command.Parameters.AddWithValue("adresseRue", entity.adresseRue);
@@ -153,6 +152,25 @@ namespace DAL.Services
 			}
 		}
 
+		public IEnumerable<Logement> GetByProprio(int idProprio)
+		{
+			using (SqlConnection connection = new SqlConnection(connectionString))
+			{
+				using (SqlCommand command = connection.CreateCommand())
+				{
+					command.CommandText = "SELECT * FROM [Logement] WHERE [idProprio] = @idProprio";
+					command.Parameters.AddWithValue("idProprio", idProprio);
+					connection.Open();
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							yield return reader.ToLogement();
+						}
+					}
+				}
+			}
+		}
 
 	}
 }

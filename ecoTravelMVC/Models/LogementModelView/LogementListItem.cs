@@ -1,65 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
-namespace DAL.Entities
+namespace ecoTravelMVC.Models.LogementModelView
 {
-	public class Logement
-	{
-		//int
+    public class LogementListItem
+    {
+		[DisplayName("identifiant")]
+		[ScaffoldColumn(false)]
 		public int idLogement { get; set; }
 
-		//money
+		[DisplayName("Prix: ")]
 		public decimal prix { get; set; }
 
-		//nvarchar(50)
+		[DisplayName("Nom ")]
 		public string nom { get; set; }
 
-		//nvarchar(255)
+		[DisplayName("Adresse ")]
 		public string adresseRue { get; set; }
 
-		//nvarchar(15)
+		//[DisplayName("numéro ")]
 		public string adresseNumero { get; set; }
 
-		//nvarchar(8)
+		//[DisplayName("CP ")]
 		public string adresseCodePostal { get; set; }
 
-		//nvarchar(50)
+		//[DisplayName("Pays ")]
 		public string adressePays { get; set; }
 
-		//decimal(10,7)
-		public decimal longitude { get; set; }
-
-		//deciaml(10,7)
-		public decimal latitude { get; set; }
-
-		//NVARCHAR(100)
+		[DisplayName("Description courte ")]
 		public string desc_courte { get; set; }
 
-		//NVARCHAR(MAX)
+		[DisplayName("Description longue ")]
 		public string desc_longue { get; set; }
 
-		//TINYINT
+		[DisplayName("chambre ")]
 		public int nb_chambre { get; set; }
 
-		//TINYINT
+		[DisplayName("Piece ")]
 		public int nb_piece { get; set; }
 
-		//TINYINT
+		[DisplayName("salle de bain ")]
 		public int nb_sdb { get; set; }
 
-		//TINYINT
+		[DisplayName("wc ")]
 		public int nb_wc { get; set; }
 
-		//TINYINT
+		[DisplayName("nombre de personne peut contenir ")]
 		public int capacite { get; set; }
 
-		//BIT
+		[DisplayName("Option ")]
 		public bool balcon { get; set; }
 
-		//BIT
 		public bool airco { get; set; }
 
 		//BIT
@@ -80,8 +71,5 @@ namespace DAL.Entities
 		//BIT
 		public bool roomService { get; set; }
 
-		//INT
-		public int idProprio { get; set; }
-
-		}
+	}
 }

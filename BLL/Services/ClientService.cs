@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-	class ClientService : IClientRepository<Client, int>
+	public class ClientService : IClientRepository<Client, int>
 	{
-		private DAL.Services.ClientService _repository;
+		private readonly IClientRepository<DAL.Entities.Client, int> _repository;
 
-		public ClientService()
+		public ClientService(IClientRepository<DAL.Entities.Client, int> repository)
 		{
 			_repository = new DAL.Services.ClientService();
 		}
