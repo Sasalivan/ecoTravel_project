@@ -105,5 +105,37 @@ namespace BLL
 				idProprio = entity.idProprio
 			};
 		}
+
+		public static BLLe.Reservation ToBLL(this DALe.Reservation entity)
+		{
+			if (entity is null) return null;
+			return new BLLe.Reservation()
+			{
+				idReservation = entity.idReservation,
+				idClient = entity.idClient,
+				idCanceler = entity.idCanceler,
+				dateDebut = entity.dateDebut,
+				dateFin = entity.dateFin,
+				nbPersonne = entity.nbPersonne,
+				nbEnfant = entity.nbEnfant,
+				dateAnnulation = entity.dateAnnulation,
+			};
+		}
+
+		public static DALe.Reservation ToDAL(this BLLe.Reservation entity)
+		{
+			if (entity is null) return null;
+			return new DALe.Reservation()
+			{
+				idReservation = entity.idReservation,
+				idClient = entity.idClient,
+				idCanceler = entity.idCanceler,
+				dateDebut = entity.dateDebut,
+				dateFin = entity.dateFin,
+				nbPersonne = entity.nbPersonne,
+				nbEnfant = entity.nbEnfant,
+				dateAnnulation = entity.dateAnnulation,
+			};
+		}
 	}
 }

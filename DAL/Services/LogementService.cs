@@ -22,7 +22,7 @@ namespace DAL.Services
 			{
 				using (SqlCommand command = connection.CreateCommand())
 				{
-					command.CommandText = "SELECT [idLogement], [prix], [nom], [adresseRue], [adresseNumero], [adresseCodePostal], [adressePays], [longitude], [latitude], [desc_courte], [desc_longue], [nb_chambre], [nb_piece], [nb_sdb], [nb_wc], [capacite], [balcon], [airco], [wifi], [minibar], [animaux], [piscine], [voiturier], [roomService], [idProprio], FROM [Logement]";
+					command.CommandText = "SELECT [idLogement], [prix], [nom], [adresseRue], [adresseNumero], [adresseCodePostal], [adressePays], [longitude], [latitude], [desc_courte], [desc_longue], [nb_chambre], [nb_piece], [nb_sdb], [nb_wc], [capacite], [balcon], [airco], [wifi], [minibar], [animaux], [piscine], [voiturier], [roomService], [idProprio] FROM [Logement]";
 					connection.Open();
 					using (SqlDataReader reader = command.ExecuteReader())
 					{
@@ -40,7 +40,7 @@ namespace DAL.Services
 			{
 				using (SqlCommand command = connection.CreateCommand())
 				{
-					command.CommandText = "SELECT [idLogement], [prix], [nom], [adresseRue], [adresseNumero], [adresseCodePostal], [adressePays], [longitude], [latitude], [desc_courte], [desc_longue], [nb_chambre], [nb_piece], [nb_sdb], [nb_wc], [capacite], [balcon], [airco], [wifi], [minibar], [animaux], [piscine], [voiturier], [roomService], [idProprio], FROM [Logement] WHERE [idLogement] = @id";
+					command.CommandText = "SELECT [idLogement], [prix], [nom], [adresseRue], [adresseNumero], [adresseCodePostal], [adressePays], [longitude], [latitude], [desc_courte], [desc_longue], [nb_chambre], [nb_piece], [nb_sdb], [nb_wc], [capacite], [balcon], [airco], [wifi], [minibar], [animaux], [piscine], [voiturier], [roomService], [idProprio] FROM [Logement] WHERE [idLogement] = @id";
 					command.Parameters.AddWithValue("id", id);
 					connection.Open();
 					using (SqlDataReader reader = command.ExecuteReader())

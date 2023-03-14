@@ -28,7 +28,13 @@ namespace ecoTravelMVC.Controllers
         // GET: ClientController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+			ClientDetail model = _service.Get(id).ToDetails();
+			if (model is null)
+			{
+				TempData["Error"] = "pas de client !!";
+				return RedirectToAction("Index");
+			}
+			return View(model);
         }
 
         // GET: ClientController/Create

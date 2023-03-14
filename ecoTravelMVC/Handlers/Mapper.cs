@@ -33,6 +33,19 @@ namespace ecoTravelMVC.Handlers
 			};
 		}
 
+		public static ClientDetail ToDetails(this Client entity)
+		{
+			if (entity is null) return null;
+			return new ClientDetail()
+			{
+				idClient = entity.idClient,
+				nom = entity.nom,
+				prenom = entity.prenom,
+				pays = entity.pays,
+				telephone = entity.telephone
+			};
+		}
+
 
 		public static LogementListItem ToListItem(this BLL.Entities.Logement entity)
 		{
